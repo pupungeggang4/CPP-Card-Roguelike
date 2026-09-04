@@ -1,28 +1,24 @@
 #include "includes.hpp"
+#include "game.hpp"
 
-int loop() {
-    BeginDrawing();
-    ClearBackground(RAYWHITE);
-    DrawText("Hello, Raylib!", 320, 200, 20, DARKGRAY);
-    EndDrawing();
-}
+Game* game;
 
 #ifdef __EMSCRIPTEN__
 void loopGame() {
-    loop();
+    game->loop();
 }
 
 extern "C" {
 EMSCRIPTEN_KEEPALIVE
 void startGame() {
-    //initGame(&gameVar);
-    InitWindow(800, 600, "Temp");
+    game->init();
     emscripten_set_main_loop(loopGame, 0, 1);
 }
 }
 #endif
 
 int main(int argc, char** argv) {
+    game = new Game();
     #ifdef __EMSCRIPTEN__
     EM_ASM({
         try { FS.mkdir('/save'); } catch(e) {}
@@ -35,12 +31,11 @@ int main(int argc, char** argv) {
         });
     });
     #else
-    //initGame(&gameVar);
-    InitWindow(800, 600, "Temp");
+    game.init();
     while(!WindowShouldClose()) {
-        loop();
+        game.loop();
     }
-    //disposeAsset(&gameVar);
+    delete game;
     #endif
     return 0;
 }
