@@ -31,9 +31,9 @@ int main(int argc, char** argv) {
         });
     });
     #else
-    game.init();
-    while(game.running) {
-        game.loop();
+    game->init();
+    while(game->running) {
+        game->loop();
     }
     delete game;
     #endif
