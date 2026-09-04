@@ -3,7 +3,9 @@
 
 class Game {
     public:
+        bool running = true;
         Game();
         void init();
         void loop();
+        void render();
 };

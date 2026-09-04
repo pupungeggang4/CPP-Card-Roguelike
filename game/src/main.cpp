@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
     });
     #else
     game.init();
-    while(!WindowShouldClose()) {
+    while(game.running) {
         game.loop();
     }
     delete game;
