@@ -1,10 +1,11 @@
 #include "game.hpp"
+#include "asset.hpp"
 
 Game::Game() {
 }
 
 void Game::init() {
-    #ifdef __EMSCRITPEN__
+    #ifdef __EMSCRIPTEN__
     InitWindow(800, 600, "Card Roguelike");
     #else
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
@@ -30,11 +31,13 @@ void Game::init() {
         (monitorWidth - width) / 2, (monitorHeight - height) / 2
     );
     #endif
-
     camera.zoom = GetRenderWidth() / 800.0f;
+    Asset::loadAsset();
 }
 
 void Game::loop() {
+    handleInput();
+    update();
     BeginDrawing();
     ClearBackground(RAYWHITE);
     BeginMode2D(camera);
@@ -53,6 +56,21 @@ void Game::loop() {
     #endif
 }
 
+void Game::update() {
+}
+
+void Game::handleInput() {
+    camera.zoom = GetRenderWidth() / 800.0f;
+    if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
+        #ifdef __EMSCRIPTEN__
+        Vector2 pos = GetMousePosition();
+        #else
+        Vector2 pos = GetScreenToWorld2D(Vector2Scale(GetMousePosition(), GetWindowScaleDPI().x), camera);
+        #endif
+        printf("(%.0f, %.0f)\n", pos.x, pos.y);
+    }
+}
+
 void Game::render() {
-    DrawText("Temp", 400, 300, 20, DARKGRAY);
+    DrawTextEx(Asset::font, "Hello World", (Vector2){20, 20}, 32.0f, 0.0f, BLACK);
 }
