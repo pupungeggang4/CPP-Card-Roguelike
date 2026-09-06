@@ -71,7 +71,7 @@ void Game::handleInput() {
         #else
         Vector2 pos = GetScreenToWorld2D(Vector2Scale(GetMousePosition(), GetWindowScaleDPI().x), camera);
         #endif
-        printf("(%.0f, %.0f)\n", pos.x, pos.y);
+        std::cout << pos.x << ' ' << pos.y << std::endl;
         scene->mouseUpLeft(*this, pos);
     }
 }
