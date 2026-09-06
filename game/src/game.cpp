@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include "asset.hpp"
+#include "scene.hpp"
 
 Game::Game() {
 }
@@ -33,15 +34,21 @@ void Game::init() {
     #endif
     camera.zoom = GetRenderWidth() / 800.0f;
     Asset::loadAsset();
+
+    scenes = std::unordered_map<std::string, shared_ptr<Scene>>();
+    scenes["title"] = make_shared<SceneTitle>();
+    scenes["ready"] = make_shared<SceneReady>();
+    scene = scenes["title"];
+    scene->ready(*this);
 }
 
 void Game::loop() {
     handleInput();
-    update();
+    scene->update(*this);
     BeginDrawing();
     ClearBackground(RAYWHITE);
     BeginMode2D(camera);
-    render();
+    scene->render(*this);
     EndMode2D();
     EndDrawing();
 
@@ -56,9 +63,6 @@ void Game::loop() {
     #endif
 }
 
-void Game::update() {
-}
-
 void Game::handleInput() {
     camera.zoom = GetRenderWidth() / 800.0f;
     if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) {
@@ -68,9 +72,15 @@ void Game::handleInput() {
         Vector2 pos = GetScreenToWorld2D(Vector2Scale(GetMousePosition(), GetWindowScaleDPI().x), camera);
         #endif
         printf("(%.0f, %.0f)\n", pos.x, pos.y);
+        scene->mouseUpLeft(*this, pos);
     }
 }
 
-void Game::render() {
-    DrawTextEx(Asset::font, "Hello World", (Vector2){20, 20}, 32.0f, 0.0f, BLACK);
+void Game::changeSceneTo(std::string target) {
+    try {
+        scene = scenes[target];
+        scene->ready(*this);
+    } catch (int e) {
+        running = false;
+    }
 }
