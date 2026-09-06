@@ -3,3 +3,7 @@
 bool Util::pointInsideRectUI(Vector2 pos, std::vector<float> rect) {
     return pos.x > rect[0] && pos.x < rect[0] + rect[2] && pos.y > rect[1] && pos.y < rect[1] + rect[3];
 }
+
+void Render::drawRect(std::vector<float> rect, Color color) {
+    DrawRectangle(rect[0], rect[1], rect[2], rect[3], color);
+}

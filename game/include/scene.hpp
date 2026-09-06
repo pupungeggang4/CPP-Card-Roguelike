@@ -29,8 +29,31 @@ class SceneReady : public Scene {
         void mouseUpLeft(Game&, Vector2) override;
 };
 
-class SceneCollection : public Scene {
+/*
+class SceneMap : public Scene {
+    public:
+        SceneReady();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUpLeft(Game&, Vector2) override;
 };
 
 class SceneGame : public Scene {
+    public:
+        SceneReady();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUpLeft(Game&, Vector2) override;
 };
+
+class SceneCollection : public Scene {
+    public:
+        SceneReady();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUpLeft(Game&, Vector2) override;
+};
+*/
