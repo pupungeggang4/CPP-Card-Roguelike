@@ -10,6 +10,7 @@ class Game {
         shared_ptr<Scene> scene;
 
         Game();
+        ~Game();
         void init();
         void loop();
         void handleInput();

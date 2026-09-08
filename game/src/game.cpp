@@ -38,6 +38,7 @@ void Game::init() {
     scenes = std::unordered_map<std::string, shared_ptr<Scene>>();
     scenes["title"] = make_shared<SceneTitle>();
     scenes["ready"] = make_shared<SceneReady>();
+    scenes["map"] = make_shared<SceneMap>();
     scene = scenes["title"];
     scene->ready(*this);
 }
@@ -83,4 +84,8 @@ void Game::changeSceneTo(std::string target) {
     } catch (int e) {
         running = false;
     }
+}
+
+Game::~Game() {
+    Asset::dispose();
 }

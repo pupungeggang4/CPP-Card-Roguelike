@@ -22,7 +22,19 @@ class SceneTitle : public Scene {
 
 class SceneReady : public Scene {
     public:
+        int selectedCharacter = -1;
+
         SceneReady();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUpLeft(Game&, Vector2) override;
+};
+
+
+class SceneMap : public Scene {
+    public:
+        SceneMap();
         void ready(Game&) override;
         void update(Game&) override;
         void render(Game&) override;
@@ -30,15 +42,6 @@ class SceneReady : public Scene {
 };
 
 /*
-class SceneMap : public Scene {
-    public:
-        SceneReady();
-        void ready(Game&) override;
-        void update(Game&) override;
-        void render(Game&) override;
-        void mouseUpLeft(Game&, Vector2) override;
-};
-
 class SceneGame : public Scene {
     public:
         SceneReady();

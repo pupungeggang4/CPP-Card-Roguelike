@@ -12,6 +12,8 @@
 
 #include <vector>
 #include <unordered_map>
+#include <array>
+#include <algorithm>
 #include <memory>
 
 using std::shared_ptr;
