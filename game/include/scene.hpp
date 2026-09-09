@@ -2,6 +2,7 @@
 #include "includes.hpp"
 
 class Game;
+class WindowMenu;
 class Scene {
     public:
         Scene();
@@ -34,6 +35,7 @@ class SceneReady : public Scene {
 
 class SceneMap : public Scene {
     public:
+        shared_ptr<WindowMenu> windowMenu;
         SceneMap();
         void ready(Game&) override;
         void update(Game&) override;

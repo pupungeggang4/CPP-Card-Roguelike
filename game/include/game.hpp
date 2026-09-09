@@ -8,6 +8,7 @@ class Game {
         Camera2D camera;
         std::unordered_map<std::string, shared_ptr<Scene>> scenes;
         shared_ptr<Scene> scene;
+        std::string state = ""; bool menu = false;
 
         Game();
         ~Game();

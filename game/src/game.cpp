@@ -9,7 +9,7 @@ void Game::init() {
     #ifdef __EMSCRIPTEN__
     InitWindow(800, 600, "Card Roguelike");
     #else
-    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+    //SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(800, 600, "Card Roguelike");
     SetExitKey(KEY_NULL);
@@ -32,6 +32,7 @@ void Game::init() {
         (monitorWidth - width) / 2, (monitorHeight - height) / 2
     );
     #endif
+    camera = {0};
     camera.zoom = GetRenderWidth() / 800.0f;
     Asset::loadAsset();
 
