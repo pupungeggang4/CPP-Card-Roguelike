@@ -40,8 +40,7 @@ if(EMSCRIPTEN)
         "-Os"
         "-sUSE_GLFW=3"
         "-sALLOW_MEMORY_GROWTH=1"
-        "-sINITIAL_MEMORY=268435456"
-        "-sSTACK_SIZE=8388608"
+        "-sSTACK_SIZE=2097152"
         "--preload-file=${CMAKE_SOURCE_DIR}/asset@asset"
     )
     target_compile_definitions(main PRIVATE PLATFORM_WEB)
