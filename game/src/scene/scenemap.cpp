@@ -16,10 +16,10 @@ void SceneMap::update(Game& game) {
 }
 
 void SceneMap::render(Game& game) {
-    DrawTextEx(Asset::neodgm, "Select", (Vector2){UI::ui["text_title"][0], UI::ui["text_title"][1]}, 32.0f, 0.0f, BLACK);
+    Render::drawText(UI::ui["text_title"], "Select");
     DrawTexture(Asset::texture["back"], UI::ui["button_back"][0], UI::ui["button_back"][1], WHITE);
 
-    if (game.menu == false) {
+    if (game.menu == true) {
         windowMenu->render(game);
     }
 }

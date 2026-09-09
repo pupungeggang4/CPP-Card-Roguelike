@@ -15,7 +15,7 @@ void SceneReady::update(Game& game) {
 }
 
 void SceneReady::render(Game& game) {
-    DrawTextEx(Asset::neodgm, "Select Character", (Vector2){UI::ui["text_title"][0], UI::ui["text_title"][1]}, 32.0f, 0.0f, BLACK);
+    Render::drawText(UI::ui["text_title"], "Select Character");
     DrawTexture(Asset::texture["back"], UI::ui["button_back"][0], UI::ui["button_back"][1], WHITE);
 
     for (int i = 0; i < 6; i++) {
@@ -33,7 +33,7 @@ void SceneReady::render(Game& game) {
         }
     }
     Render::drawRect(UI::ui["button_game_start"], YELLOW);
-    DrawTextEx(Asset::neodgm, "Start", (Vector2){UI::ui["text_game_start"][0], UI::ui["text_game_start"][1]}, 32.0f, 0.0f, BLACK);
+    Render::drawText(UI::ui["text_game_start"], "Start");
 }
 
 void SceneReady::mouseUpLeft(Game& game, Vector2 pos) {

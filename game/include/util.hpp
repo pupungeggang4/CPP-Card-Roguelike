@@ -9,4 +9,5 @@ class Util {
 class Render {
     public:
         static void drawRect(std::vector<float>, Color);
+        static void drawText(std::vector<float>, const char*, float size = 32.0f, Color color = BLACK);
 };
