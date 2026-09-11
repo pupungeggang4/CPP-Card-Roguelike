@@ -20,5 +20,7 @@ std::unordered_map<std::string, std::vector<float>> UI::ui = {
     {"button_menu_quit", {160.0f, 380.0f, 480.0f, 80.0f}},
     {"text_menu_quit", {180.0f, 400.0f}},
 
-    {"button_map", {20.0f, 180.0f, 240.0f, 240.0f, 260.0f, 0.0f}}
+    {"button_map", {20.0f, 180.0f, 240.0f, 240.0f, 260.0f, 0.0f}},
+    {"button_map_select", {320.0f, 500.0f, 160.0f, 80.0f}},
+    {"text_map_select", {340.0f, 520.0f}},
 };

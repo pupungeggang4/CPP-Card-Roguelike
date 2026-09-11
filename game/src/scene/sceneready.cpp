@@ -22,16 +22,15 @@ void SceneReady::render(Game& game) {
     for (int i = 0; i < 6; i++) {
         int col = i % 3;
         int row = (i - col) / 3;
-        std::vector<float> rect = {
+        std::vector<float> pos = {
             UI::ui["button_character"][0] + UI::ui["button_character"][4] * col,
             UI::ui["button_character"][1] + UI::ui["button_character"][5] * row,
-            UI::ui["button_character"][2], UI::ui["button_character"][3]
         };
         if (Asset::texture[texList[i]].id != NULL) {
-            Render::drawTexture(rect, Asset::texture[texList[i]]);
+            Render::drawTexture(pos, Asset::texture[texList[i]]);
         }
         if (selectedCharacter == i) {
-            Render::drawTexture(rect, Asset::texture["selectframe"]);
+            Render::drawTexture(pos, Asset::texture["selectframe"]);
         }
     }
     Render::drawRect(UI::ui["button_game_start"], YELLOW);

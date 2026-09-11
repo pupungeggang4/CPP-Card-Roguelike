@@ -20,13 +20,15 @@ void SceneMap::render(Game& game) {
     DrawTexture(Asset::texture["back"], UI::ui["button_back"][0], UI::ui["button_back"][1], WHITE);
 
     for (int i = 0; i < 3; i++) {
-        std::vector<float> rect = {
+        std::vector<float> pos = {
             UI::ui["button_map"][0] + UI::ui["button_map"][4] * i,
-            UI::ui["button_map"][1],
-            UI::ui["button_map"][2], UI::ui["button_map"][3],
+            UI::ui["button_map"][1]
         };
-        Render::drawTexture(rect, Asset::texture["battle"]);
+        Render::drawTexture(pos, Asset::texture["battle"]);
     }
+
+    Render::drawRect(UI::ui["button_map_select"], YELLOW);
+    Render::drawText(UI::ui["text_map_select"], "Select");
 
     if (game.menu == true) {
         windowMenu->render(game);

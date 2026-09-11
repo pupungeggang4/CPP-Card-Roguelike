@@ -43,16 +43,17 @@ class SceneMap : public Scene {
         void mouseUpLeft(Game&, Vector2) override;
 };
 
-/*
+
 class SceneGame : public Scene {
     public:
-        SceneReady();
+        SceneGame();
         void ready(Game&) override;
         void update(Game&) override;
         void render(Game&) override;
         void mouseUpLeft(Game&, Vector2) override;
 };
 
+/*
 class SceneCollection : public Scene {
     public:
         SceneReady();
