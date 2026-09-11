@@ -12,3 +12,7 @@ void Render::drawRect(std::vector<float> rect, Color color) {
 void Render::drawText(std::vector<float> pos, const char* text, float size, Color color) {
     DrawTextEx(Asset::neodgm, text, (Vector2){pos[0], pos[1]}, size, 0.0f, color);
 }
+
+void Render::drawTexture(std::vector<float> pos, Texture2D texture) {
+    DrawTexture(texture, pos[0], pos[1], WHITE); 
+}

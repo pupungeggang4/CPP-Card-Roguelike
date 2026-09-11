@@ -18,6 +18,7 @@ void SceneReady::render(Game& game) {
     Render::drawText(UI::ui["text_title"], "Select Character");
     DrawTexture(Asset::texture["back"], UI::ui["button_back"][0], UI::ui["button_back"][1], WHITE);
 
+    std::vector<std::string> texList = {"fire", "water", "wind", "earth", "light", "rainbow"};
     for (int i = 0; i < 6; i++) {
         int col = i % 3;
         int row = (i - col) / 3;
@@ -26,10 +27,11 @@ void SceneReady::render(Game& game) {
             UI::ui["button_character"][1] + UI::ui["button_character"][5] * row,
             UI::ui["button_character"][2], UI::ui["button_character"][3]
         };
-        if (i == selectedCharacter) {
-            Render::drawRect(rect, BLUE);
-        } else {
-            Render::drawRect(rect, MAGENTA);
+        if (Asset::texture[texList[i]].id != NULL) {
+            Render::drawTexture(rect, Asset::texture[texList[i]]);
+        }
+        if (selectedCharacter == i) {
+            Render::drawTexture(rect, Asset::texture["selectframe"]);
         }
     }
     Render::drawRect(UI::ui["button_game_start"], YELLOW);

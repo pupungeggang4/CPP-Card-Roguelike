@@ -20,3 +20,12 @@ class WindowMenu : public Window {
         void render(Game&) override;
         void mouseUpLeft(Game&, Vector2) override;
 };
+
+class WindowReward : public Window {
+    public:
+        WindowReward();
+        void ready(Game&) override;
+        void update(Game&) override;
+        void render(Game&) override;
+        void mouseUpLeft(Game&, Vector2) override;
+};

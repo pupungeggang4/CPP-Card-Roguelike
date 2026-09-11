@@ -7,7 +7,7 @@ std::unordered_map<std::string, std::vector<float>> UI::ui = {
     {"button_quit", {100.0f, 160.0f, 600.0f, 80.0f}},
     {"text_quit", {120.0f, 180.0f}},
     {"button_back", {740.0f, 20.0f, 40.0f, 40.0f}},
-    {"button_character", {20.0f, 80.0f, 120.0f, 120.0f, 140.0f, 140.0f}},
+    {"button_character", {20.0f, 80.0f, 160.0f, 160.0f, 180.0f, 180.0f}},
     {"button_game_start", {620.0f, 500.0f, 160.0f, 80.0f}},
     {"text_game_start", {640.0f, 520.0f}},
     
@@ -19,4 +19,6 @@ std::unordered_map<std::string, std::vector<float>> UI::ui = {
     {"text_menu_exit", {180.0f, 320.0f}},
     {"button_menu_quit", {160.0f, 380.0f, 480.0f, 80.0f}},
     {"text_menu_quit", {180.0f, 400.0f}},
+
+    {"button_map", {20.0f, 180.0f, 240.0f, 240.0f, 260.0f, 0.0f}}
 };

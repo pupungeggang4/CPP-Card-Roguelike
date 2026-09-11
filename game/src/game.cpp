@@ -9,7 +9,7 @@ void Game::init() {
     #ifdef __EMSCRIPTEN__
     InitWindow(800, 600, "Card Roguelike");
     #else
-    //SetConfigFlags(FLAG_WINDOW_HIGHDPI);
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(800, 600, "Card Roguelike");
     SetExitKey(KEY_NULL);
