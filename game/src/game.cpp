@@ -40,6 +40,7 @@ void Game::init() {
     scenes["title"] = make_shared<SceneTitle>();
     scenes["ready"] = make_shared<SceneReady>();
     scenes["map"] = make_shared<SceneMap>();
+    scenes["battle"] = make_shared<SceneBattle>();
     scene = scenes["title"];
     scene->ready(*this);
 }

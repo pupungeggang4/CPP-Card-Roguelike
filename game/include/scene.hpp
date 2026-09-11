@@ -35,6 +35,8 @@ class SceneReady : public Scene {
 
 class SceneMap : public Scene {
     public:
+        int selectedMap = -1;
+
         shared_ptr<WindowMenu> windowMenu;
         SceneMap();
         void ready(Game&) override;
@@ -44,9 +46,9 @@ class SceneMap : public Scene {
 };
 
 
-class SceneGame : public Scene {
+class SceneBattle : public Scene {
     public:
-        SceneGame();
+        SceneBattle();
         void ready(Game&) override;
         void update(Game&) override;
         void render(Game&) override;

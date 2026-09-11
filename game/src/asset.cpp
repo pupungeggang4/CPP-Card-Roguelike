@@ -20,6 +20,7 @@ void Asset::loadAsset() {
     texture.emplace("light", LoadTexture("asset/image/light.png"));
     texture.emplace("rainbow", LoadTexture("asset/image/rainbow.png"));
     texture.emplace("selectframe", LoadTexture("asset/image/selectframe.png"));
+    texture.emplace("selectframe240", LoadTexture("asset/image/selectframe240.png"));
 
     texture.emplace("battle", LoadTexture("asset/image/battle.png"));
 }
