@@ -26,7 +26,7 @@ void SceneReady::render(Game& game) {
             UI::ui["button_character"][0] + UI::ui["button_character"][4] * col,
             UI::ui["button_character"][1] + UI::ui["button_character"][5] * row,
         };
-        if (Asset::texture[texList[i]].id != NULL) {
+        if (Asset::texture.find(texList[i]) != Asset::texture.end()) {
             Render::drawTexture(pos, Asset::texture[texList[i]]);
         }
         if (selectedCharacter == i) {
