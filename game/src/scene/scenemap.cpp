@@ -18,7 +18,7 @@ void SceneMap::update(Game& game) {
 
 void SceneMap::render(Game& game) {
     Render::drawText(UI::ui["text_title"], "Select");
-    DrawTexture(Asset::texture["back"], UI::ui["button_back"][0], UI::ui["button_back"][1], WHITE);
+    Render::drawTexture(UI::ui["button_back"], Asset::texture["menu"]);
 
     for (int i = 0; i < 3; i++) {
         std::vector<float> pos = {

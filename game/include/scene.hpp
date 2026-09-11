@@ -36,8 +36,8 @@ class SceneReady : public Scene {
 class SceneMap : public Scene {
     public:
         int selectedMap = -1;
-
         shared_ptr<WindowMenu> windowMenu;
+        
         SceneMap();
         void ready(Game&) override;
         void update(Game&) override;
@@ -48,6 +48,8 @@ class SceneMap : public Scene {
 
 class SceneBattle : public Scene {
     public:
+        shared_ptr<WindowMenu> windowMenu;
+
         SceneBattle();
         void ready(Game&) override;
         void update(Game&) override;

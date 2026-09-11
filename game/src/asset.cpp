@@ -13,6 +13,8 @@ void Asset::loadAsset() {
     for (int i = 0x30A0; i <= 0x30FF; i++) codepoints[count++] = i;
     neodgm = LoadFontEx("asset/font/neodgm.ttf", 32, codepoints, count);
     texture.emplace("back", LoadTexture("asset/image/back.png"));
+    texture.emplace("menu", LoadTexture("asset/image/menu.png"));
+
     texture.emplace("fire", LoadTexture("asset/image/fire.png"));
     texture.emplace("water", LoadTexture("asset/image/water.png"));
     texture.emplace("wind", LoadTexture("asset/image/wind.png"));
