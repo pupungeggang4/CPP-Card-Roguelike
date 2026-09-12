@@ -7,12 +7,18 @@
 
 #include <raylib.h>
 #include <raymath.h>
+
 #include <iostream>
 #include <cstdlib>
+#include <string>
+#include <random>
+#include <fstream>
+#include <sstream>
 
 #include <vector>
 #include <unordered_map>
 #include <array>
+
 #include <algorithm>
 #include <memory>
 

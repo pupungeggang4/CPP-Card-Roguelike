@@ -10,7 +10,6 @@ void Game::init() {
     InitWindow(800, 600, "Card Roguelike");
     #else
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(800, 600, "Card Roguelike");
     SetExitKey(KEY_NULL);
 
@@ -18,6 +17,7 @@ void Game::init() {
     int currentMonitor = GetCurrentMonitor();
     int monitorWidth = GetMonitorWidth(currentMonitor);
     int monitorHeight = GetMonitorHeight(currentMonitor);
+    std::cout << monitorHeight << std::endl;
 
     if (monitorWidth * 3 > monitorHeight * 4) {
         height = monitorHeight * 0.8f;
@@ -31,6 +31,7 @@ void Game::init() {
     SetWindowPosition(
         (monitorWidth - width) / 2, (monitorHeight - height) / 2
     );
+    SetWindowState(FLAG_WINDOW_RESIZABLE);
     #endif
     camera = {0};
     camera.zoom = GetRenderWidth() / 800.0f;
