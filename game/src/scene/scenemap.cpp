@@ -20,8 +20,8 @@ void SceneMap::update(Game& game) {
 void SceneMap::render(Game& game) {
     Render::drawText(UI::ui["text_title"], "Select");
     Render::drawTexture(UI::ui["button_back"], Asset::texture["menu"]);
-    Render::drawText(UI::ui["text_map_floor"], std::format("Floor: {}", game.adventure->floor).c_str());
-    Render::drawText(UI::ui["text_map_gold"], std::format("Gold: {}", game.adventure->gold).c_str());
+    Render::drawText(UI::ui["text_map_floor"], ("Floor: " + std::to_string(game.adventure->floor)).c_str());
+    Render::drawText(UI::ui["text_map_gold"], ("Gold: " + std::to_string(game.adventure->gold)).c_str());
 
     for (int i = 0; i < 3; i++) {
         std::vector<float> pos = {
