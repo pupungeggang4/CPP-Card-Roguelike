@@ -25,6 +25,9 @@ void Asset::loadAsset() {
     texture.emplace("selectframe240", LoadTexture("asset/image/selectframe240.png"));
 
     texture.emplace("battle", LoadTexture("asset/image/battle.png"));
+    texture.emplace("shop", LoadTexture("asset/image/shop.png"));
+    texture.emplace("event", LoadTexture("asset/image/event.png"));
+    texture.emplace("boss", LoadTexture("asset/image/boss.png"));
 }
 
 void Asset::dispose() {

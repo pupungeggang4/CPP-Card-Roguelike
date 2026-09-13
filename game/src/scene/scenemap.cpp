@@ -4,6 +4,7 @@
 #include "util.hpp"
 #include "window.hpp"
 #include "game.hpp"
+#include "entity/adventure.hpp"
 
 SceneMap::SceneMap() {
     windowMenu = make_shared<WindowMenu>();
@@ -19,13 +20,15 @@ void SceneMap::update(Game& game) {
 void SceneMap::render(Game& game) {
     Render::drawText(UI::ui["text_title"], "Select");
     Render::drawTexture(UI::ui["button_back"], Asset::texture["menu"]);
+    Render::drawText(UI::ui["text_map_floor"], std::format("Floor: {}", game.adventure->floor).c_str());
+    Render::drawText(UI::ui["text_map_gold"], std::format("Gold: {}", game.adventure->gold).c_str());
 
     for (int i = 0; i < 3; i++) {
         std::vector<float> pos = {
             UI::ui["button_map"][0] + UI::ui["button_map"][4] * i,
             UI::ui["button_map"][1]
         };
-        Render::drawTexture(pos, Asset::texture["battle"]);
+        Render::drawTexture(pos, Asset::texture[game.adventure->layout[game.adventure->floor][i]]);
 
         if (selectedMap == i) {
             Render::drawTexture(pos, Asset::texture["selectframe240"]);
@@ -60,7 +63,9 @@ void SceneMap::mouseUpLeft(Game& game, Vector2 pos) {
 
         if (Util::pointInsideRectUI(pos, UI::ui["button_map_select"])) {
             if (selectedMap != -1) {
-                game.changeSceneTo("battle");
+                if (game.adventure->layout[game.adventure->floor][selectedMap] == "battle") {
+                    game.changeSceneTo("battle");
+                }
             }
         }
     } else {

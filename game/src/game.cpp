@@ -2,6 +2,8 @@
 #include "asset.hpp"
 #include "scene.hpp"
 
+#include "entity/adventure.hpp"
+
 Game::Game() {
 }
 
@@ -44,6 +46,8 @@ void Game::init() {
     scenes["battle"] = make_shared<SceneBattle>();
     scene = scenes["title"];
     scene->ready(*this);
+
+    adventure = make_shared<Adventure>();
 }
 
 void Game::loop() {

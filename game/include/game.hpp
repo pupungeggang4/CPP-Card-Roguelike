@@ -2,6 +2,8 @@
 #include "includes.hpp"
 
 class Scene;
+class Adventure;
+
 class Game {
     public:
         bool running = true;
@@ -9,6 +11,8 @@ class Game {
         std::unordered_map<std::string, shared_ptr<Scene>> scenes;
         shared_ptr<Scene> scene;
         std::string state = ""; bool menu = false;
+
+        shared_ptr<Adventure> adventure;
 
         Game();
         ~Game();

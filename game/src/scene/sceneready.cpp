@@ -3,6 +3,7 @@
 #include "ui.hpp"
 #include "util.hpp"
 #include "game.hpp"
+#include "entity/adventure.hpp"
 
 SceneReady::SceneReady() {
 }
@@ -59,6 +60,8 @@ void SceneReady::mouseUpLeft(Game& game, Vector2 pos) {
     if (Util::pointInsideRectUI(pos, UI::ui["button_game_start"])) {
         if (selectedCharacter != -1) {
             game.changeSceneTo("map");
+            game.adventure->initAdventure();
+            game.adventure->initPlayer(selectedCharacter + 1);
         }
     }
 }
